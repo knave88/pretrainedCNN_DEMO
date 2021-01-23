@@ -88,4 +88,22 @@ def heatmap_for_top_pred (img_path, model, figsizeX):
     
     return None
 
+def print_learning_acc(myhist):
+    # summarize history for accuracy
+    plt.plot(myhist['acc'])
+    plt.plot(myhist['val_acc'])
+    plt.title('model accuracy')
+    plt.ylabel('accuracy')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'val'], loc='upper left')
+    plt.show()
+    # summarize history for loss
+    plt.plot(myhist['loss'])
+    plt.plot(myhist['val_loss'])
+    plt.title('model loss')
+    plt.ylabel('loss')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'val'], loc='upper left')
+    plt.show()
+    return None
 
