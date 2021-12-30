@@ -15,7 +15,3 @@ Pretrained networks are a good way to start your project as they are usually tra
 Topics included in this DEMO:
 * Image classification wth CNN pretrained on imagenet database
 * Object localisaton based on CAMs (WSL introduction)
-
-****
-
-Face Detection: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1LlCdCQ9SuF-sVZXA-taQ-bsB7vLEiGIc?usp=sharing)
