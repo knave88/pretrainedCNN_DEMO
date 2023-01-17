@@ -1,7 +1,7 @@
 # pretrainedCNN_DEMO
 
 CNN_BT_tutorial: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/knave88/pretrainedCNN_DEMO/main?filepath=CNN_BT_tutorial.ipynb)
-                 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/knave88/pretrainedCNN_DEMO/blob/main/CNN_BT_tutorial.ipynb)
+                 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/knave88/pretrainedCNN_DEMO/blob/main/CNN_BT_tutorial_colab.ipynb)
 
 How to build CNN in Keras in few lines.
 
