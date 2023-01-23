@@ -14,3 +14,9 @@ Pretrained networks are a good way to start your project as they are usually tra
 Topics included in this DEMO:
 * Image classification wth CNN pretrained on imagenet database
 * Object localisaton based on CAMs (WSL introduction)
+
+****
+
+Pretrained CNN: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/knave88/pretrainedCNN_DEMO/blob/main/test_fromWebcam.ipynb)
+
+Use pretrained CNN model for image classification and then use CAM to localize the object. (Image from webcam; CNN trained on Imagenet)
