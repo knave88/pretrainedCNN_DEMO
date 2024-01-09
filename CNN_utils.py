@@ -5,6 +5,9 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 import matplotlib.patches as patches
+
+import tensorflow as tf
+
 from keras import backend as K
 from keras.preprocessing import image
 from keras.preprocessing.image import load_img
