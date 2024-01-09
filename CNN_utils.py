@@ -90,8 +90,8 @@ def heatmap_for_top_pred (img_path, model, figsizeX):
 
 def print_learning_acc(myhist):
     # summarize history for accuracy
-    plt.plot(myhist['acc'])
-    plt.plot(myhist['val_acc'])
+    plt.plot(myhist['accuracy'])
+    plt.plot(myhist['val_accuracy'])
     plt.title('model accuracy')
     plt.ylabel('accuracy')
     plt.xlabel('epoch')
