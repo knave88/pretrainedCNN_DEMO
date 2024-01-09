@@ -42,6 +42,7 @@ def get_bounds(out, percentile=95):
                 down = max(down, y)
     return left, up, down, right
 
+
 def heatmap_for_top_pred (img_path, model, figsizeX):
     img = image.load_img(img_path, target_size=(224, 224))
     x = image.img_to_array(img)
@@ -58,19 +59,20 @@ def heatmap_for_top_pred (img_path, model, figsizeX):
     top_class_output = model.output[1][:, analyzed_class]
     last_conv_layer = model.get_layer('conv_pw_13')
 
-    grads = K.gradients(top_class_output, last_conv_layer.output)[0]
-    pooled_grads = K.mean(grads, axis=(0, 1, 2))
-    iterate = K.function([model.input], [pooled_grads, last_conv_layer.output[0]])
-    pooled_grads_value, conv_layer_output_value = iterate([x])
+    with tf.GradientTape() as tape:
+        last_conv_layer_output, preds = grad_model(img_array)
+        if pred_index is None:
+            pred_index = tf.argmax(preds[0])
+        class_channel = preds[:, pred_index]
 
-    for i in range(1024):
-        conv_layer_output_value[:, :, i] *= pooled_grads_value[i]
-
-    heatmap = np.mean(conv_layer_output_value, axis=-1)
-
-    heatmap = np.maximum(heatmap, 0)
-    heatmap /= np.max(heatmap)
-    
+    grads = tape.gradient(class_channel, last_conv_layer_output)
+    pooled_grads = tf.reduce_mean(grads, axis=(0, 1, 2))
+    last_conv_layer_output = last_conv_layer_output[0]
+    heatmap = last_conv_layer_output @ pooled_grads[..., tf.newaxis]
+    heatmap = tf.squeeze(heatmap)
+    heatmap = tf.maximum(heatmap, 0) / tf.math.reduce_max(heatmap)
+    heatmap = heatmap.numpy()
+        
     heatmap = cv2.resize(heatmap, (224,224))
     heatmap = np.uint8(255 * heatmap)
     
