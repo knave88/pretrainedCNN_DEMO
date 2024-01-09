@@ -63,7 +63,7 @@ def heatmap_for_top_pred (img_path, model, figsizeX):
     last_conv_layer = model.get_layer('conv_pw_13')
 
     with tf.GradientTape() as tape:
-        last_conv_layer_output, preds = model(img_array)
+        last_conv_layer_output, preds = model(x)
         if pred_index is None:
             pred_index = tf.argmax(preds[0])
         class_channel = preds[:, pred_index]
