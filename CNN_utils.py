@@ -46,7 +46,7 @@ def get_bounds(out, percentile=95):
     return left, up, down, right
 
 
-def heatmap_for_top_pred (img_path, model, figsizeX):
+def heatmap_for_top_pred (img_path, model, figsizeX,  pred_index=None):
     img = image.load_img(img_path, target_size=(224, 224))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
