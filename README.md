@@ -1,3 +1,5 @@
+Update 2023: working!
+
 # pretrainedCNN_DEMO
 
 CNN_BT_tutorial: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/knave88/pretrainedCNN_DEMO/main?filepath=CNN_BT_tutorial.ipynb)
