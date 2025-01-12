@@ -59,8 +59,8 @@ def heatmap_for_top_pred (img_path, model, figsizeX,  pred_index=None):
     top13_preds = preds[0].argsort()[-13:][::-1]
     analyzed_class = top13_preds[analysed_preds]
 
-    top_class_output = model.output[1][:, analyzed_class]
-    last_conv_layer = model.get_layer('conv_pw_13')
+    #top_class_output = model.output[1][:, analyzed_class]
+    #last_conv_layer = model.get_layer('conv_pw_13')
 
     with tf.GradientTape() as tape:
         last_conv_layer_output, preds = model(x)
